@@ -1,5 +1,5 @@
 #!/bin/bash
 
-PERSON = "Hari"
+PERSON=Hari
 
 eecho "Hello, name is $PERSON"
