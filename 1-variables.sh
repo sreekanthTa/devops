@@ -2,4 +2,4 @@
 
 PERSON=Hari
 
-eecho "Hello, name is $PERSON"
+echo "Hello, name is $PERSON"
