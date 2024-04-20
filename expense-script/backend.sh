@@ -62,7 +62,7 @@ fi
 
 echo "Make app direcotry"
 
-mkdir /app &>>$LOGFILE
+mkdir -p /app &>>$LOGFILE
 VALIDATE $? "GO TO DIRECTOR"
 
 echo "Make curl"
