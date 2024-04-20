@@ -47,8 +47,17 @@ dnf install nodejs -y &>>$LOGFILE
 VALIDATE $? "INSTALL NODEJS"
 
 echo "Add User"
-useradd expense &>>$LOGFILE
-VALIDATE $? "USERADD EXPENSE"
+
+id expense &>>&LOGFILE
+
+if [$? -ne 0]
+then
+  useradd expense &>>$LOGFILE
+  VALIDATE $? "USERADD EXPENSE"
+else
+ echo "User Already created"
+
+
 
 echo "Make app direcotry"
 
