@@ -21,6 +21,8 @@ VALIDATE(){
     fi
 }
 
+echo "checking user"
+
 if [ $USERID -ne 0 ]
   then 
     echo "Please provide Root access to run this file"
@@ -29,12 +31,17 @@ if [ $USERID -ne 0 ]
      echo "You are root user"
 fi
 
+echo "disable nodejs"
+
 dnf module disable nodejs -y &>>$LOGFILE
 VALIDATE $? "NODEJS DISABLE"
+
+echo "enable nodejs"
 
 dnf module enable nodejs:20 -y &>>$LOGFILE
 VALIDATE $? "NODEJS ENABLE"
 
+echo "install nodejs"
 
 dnf install nodejs -y &>>$LOGFILE
 VALIDATE $? "INSTALL NODEJS"
