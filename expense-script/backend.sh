@@ -1,7 +1,7 @@
 #!/bin/bash
 USERID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
-FILENAME=$(echo $0 | cut -d '.' -f)
+FILENAME=$(echo $0 | cut -d '.' -f1)
 LOGFILE=/tmp/$FILENAME-$TIMESTAMP.log
 
 R="\e[31m"
