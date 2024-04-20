@@ -48,7 +48,7 @@ VALIDATE $? "INSTALL NODEJS"
 
 echo "Add User"
 
-id expense &>>&LOGFILE
+id expense &>>$LOGFILE
 
 if [$? -ne 0]
 then
