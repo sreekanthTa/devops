@@ -14,7 +14,7 @@ N="\e[0m"
 
 VALIDATE(){
     
-    if [$1 -ne 0] 
+    if [ $1 -ne 0 ] 
     then
         echo -e "$2...$R Failure $N"
         exit 1
@@ -23,7 +23,7 @@ VALIDATE(){
     fi
 }
 
-if [USERID -ne 0]
+if [ $USERID -ne 0 ]
 then
    echo "Please run this scritp as a root user"
    exit 1
