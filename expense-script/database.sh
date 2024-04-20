@@ -32,20 +32,20 @@ else
 
 fi
 
-dnf install mysql-server -y
+dnf install mysql-server -y &>>$LOGFILE
 VALIDATE $? "MySql Server"
 
-dnf enable mysqld
+dnf enable mysqld &>>$LOGFILE
 VALIDATE $? "Enable MySql Server"
 
-dnf start mysqld
+dnf start mysqld &>>$LOGFILE
 VALIDATE  $? "Start MySql Server"
 
-mysql -h  -uroot -pExpenseApp@1 -e 'show databases;'
+mysql -h  -uroot -pExpenseApp@1 -e 'show databases;' &>>$LOGFILE
 
 if [ $? -ne 0]
 then
- echo "mysql_secure_installation --set-root-pass ExpenseApp@1"
+  mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOGFILE
  VALIDATE $? "MySql root password setup"
 else
  echo "mysql password is already setup ... Skipping"
