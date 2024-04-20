@@ -5,7 +5,7 @@ FILENAME=$(echo $0 | cut -d '.' -f1)
 LOGFILE=/tmp/$FILENAME-$TIMESTAMP.log
 
 R="\e[31m"
-R="\e[32m"
+G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
