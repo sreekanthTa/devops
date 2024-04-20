@@ -1,13 +1,14 @@
 #!/bin/bash
-
 USERID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 FILENAME=$(echo $0 | cut -d '.' -f)
 LOGFILE=$FILENAME-$TIMESTAMP.log
 R="\e[31m"
-R="\e[31m"
-Y="\e[31m"
+R="\e[32m"
+Y="\e[33m"
 N="\e[0m"
+
+echo "starting backend script"
 
 VALIDATE(){
     if [ $? -ne 0 ]
@@ -51,6 +52,9 @@ VALIDATE $? "DOWNLOAD ZIP FILE"
 
 
 cd /app &>>$LOGFILE
+
+rm -rf /app/*
+
 
 unzip /tmp/backend.zip &>>$LOGFILE
 VALIDATE $? "UNZIP"
