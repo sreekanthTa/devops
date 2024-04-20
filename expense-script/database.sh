@@ -41,7 +41,7 @@ VALIDATE $? "Enable MySql Server"
 systemctl start mysqld &>>$LOGFILE
 VALIDATE  $? "Start MySql Server"
 
-mysql -h 54.235.233.109  -uroot -pExpenseApp@1 -e 'show databases;' &>>$LOGFILE
+mysql -h "54.235.233.109"  -uroot -pExpenseApp@1 -e 'show databases;' &>>$LOGFILE
 
 if [ $? -ne 0]
 then
