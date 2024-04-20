@@ -35,10 +35,10 @@ fi
 dnf install mysql-server -y &>>$LOGFILE
 VALIDATE $? "MySql Server"
 
-dnf enable mysqld &>>$LOGFILE
+systemctl enable mysqld &>>$LOGFILE
 VALIDATE $? "Enable MySql Server"
 
-dnf start mysqld &>>$LOGFILE
+systemctl start mysqld &>>$LOGFILE
 VALIDATE  $? "Start MySql Server"
 
 mysql -h  -uroot -pExpenseApp@1 -e 'show databases;' &>>$LOGFILE
