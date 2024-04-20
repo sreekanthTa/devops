@@ -1,7 +1,7 @@
 #!/bin/bash
 USERID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
-FILENAME=$( $0 |  cut -d '.' -f1)
+FILENAME=$(echo $0 |  cut -d '.' -f1)
 LOGFILE=$TIMESTAMP-$FILENAME.log
 echo "Starting $0 at $TIMESTAMP" >> $LOGFILE
 
