@@ -46,18 +46,21 @@ echo "install nodejs"
 dnf install nodejs -y &>>$LOGFILE
 VALIDATE $? "INSTALL NODEJS"
 
-
+echo "Add User"
 useradd expense &>>$LOGFILE
 VALIDATE $? "USERADD EXPENSE"
 
+echo "Make app direcotry"
 
 mkdir /app &>>$LOGFILE
 VALIDATE $? "GO TO DIRECTOR"
 
+echo "Make curl"
 
 curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$LOGFILE
 VALIDATE $? "DOWNLOAD ZIP FILE"
 
+echo "Make curl"
 
 cd /app &>>$LOGFILE
 
