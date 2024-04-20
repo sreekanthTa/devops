@@ -76,38 +76,47 @@ cd /app &>>$LOGFILE
 
 rm -rf /app/*
 
+echo "UnZip"
 
 unzip /tmp/backend.zip &>>$LOGFILE
 VALIDATE $? "UNZIP"
 
+echo "Install Modules"
 
 npm install &>>$LOGFILE
 VALIDATE $? "INSTALL NODE"
 
+echo "Copy  Service"
 
 cp /home/ec2-user/expense-script/backend.service /etc/systemd/system/backend.service &>>$LOGFILE
 VALIDATE $? "COPY BACKEND SERVICE"
 
+echo "daemon reload"
 
 systemctl daemon-reload &>>$LOGFILE
 VALIDATE $? "RELOAD"
 
+echo "start backend"
 
 systemctl start backend &>>$LOGFILE
 VALIDATE $? "ENABLE"
 
+echo "enable backend"
 
 systemctl enable backend &>>$LOGFILE
 VALIDATE $? "BACKEND"
 
+echo "install mysql"
 
 dnf install mysql -y &>>$LOGFILE
 VALIDATE $? "INSTALL MYSQL"
 
+echo "Load Sche"
 
 mysql -h 172.31.83.67 -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOGFILE
 VALIDATE $? "LOAD SCHEMA"
 
+echo "r Sche"
 
 systemctl restart backend &>>$LOGFILE
 VALIDATE $? "RESTART BACKEND"
