@@ -88,7 +88,7 @@ VALIDATE $? "INSTALL NODE"
 
 echo "Copy  Service"
 
-cp /home/ec2-user/expense-script/backend.service /etc/systemd/system/backend.service &>>$LOGFILE
+cp /home/ec2-user/devops/expense-script/backend.service /etc/systemd/system/backend.service &>>$LOGFILE
 VALIDATE $? "COPY BACKEND SERVICE"
 
 echo "daemon reload"
