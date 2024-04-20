@@ -56,6 +56,7 @@ then
   VALIDATE $? "USERADD EXPENSE"
 else
  echo "User Already created"
+fi
 
 
 
