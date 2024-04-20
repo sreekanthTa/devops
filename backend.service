@@ -1,0 +1,10 @@
+[Unit]
+Description=Backend
+
+[Service]
+User=expense
+Environment=DB_HOST=172.31.83.67
+ExecStart=/usr/bin/node /app/index.js
+
+[Install]
+WantedBy=multi-user.target
