@@ -22,7 +22,7 @@ VALIDATE(){
     fi
 }
 
-if[ $USERID -ne 0]
+if[ $USERID -ne 0 ]
 then
     echo "$R You must be root to run this script $N"
     exit 1
