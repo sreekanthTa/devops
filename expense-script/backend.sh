@@ -2,7 +2,8 @@
 USERID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 FILENAME=$(echo $0 | cut -d '.' -f)
-LOGFILE=$FILENAME-$TIMESTAMP.log
+LOGFILE=/tmp/$FILENAME-$TIMESTAMP.log
+
 R="\e[31m"
 R="\e[32m"
 Y="\e[33m"
