@@ -2,7 +2,7 @@
 
 SOURCE_DIRECTORY="/app"
 
-if [-d $SOURCE_DIRECTORY]
+if [ -d $SOURCE_DIRECTORY ]
 then
   echo "Source directory exists"
 else
