@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SOURCE_DIRECTORY="/app"
+SOURCE_DIRECTORY="../app"
 
 if [ -d $SOURCE_DIRECTORY ]
 then
