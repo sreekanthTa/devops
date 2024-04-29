@@ -12,4 +12,4 @@
   tasks:
   - name: check prompt data
     ansible.builtin.debug:
-     msg: "checking username is {{USERNAME}} and passwor {{PASSWORd}}"
+     msg: "checking username is {{USERNAME}} and passwor {{PASSWORD}}"
