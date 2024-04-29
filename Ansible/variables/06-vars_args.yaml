@@ -1,0 +1,7 @@
+- name: Arguments
+  hosts: localhost
+  become: yes
+  tasks:
+  - name: Print arguments
+    debug:
+      msg: "{{name}}"
