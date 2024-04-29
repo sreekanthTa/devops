@@ -1,5 +1,6 @@
 - name: Debug
   hosts: web
+  become: yes
   tasks:
   - name: debug task
     ansible.builtin.debug:
