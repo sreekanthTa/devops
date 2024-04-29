@@ -1,7 +1,7 @@
 - name: Variable Files
   hosts: localhost
   become:  yes
-  vars_file:
+  vars_files:
    - 03-vars_file.yaml
   tasks:
   - name: Check variable files
