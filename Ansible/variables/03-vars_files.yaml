@@ -6,4 +6,4 @@
   tasks:
   - name: Check variable files
     ansible.builtin.debug:
-      msg: "Hello checking var files course is {{course}}, trainer is {{trainer}}, type {{advance}}"
+      msg: "Hello checking var files course is {{course}}, trainer is {{trainer}}, type {{duration}}"
