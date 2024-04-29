@@ -1,0 +1,15 @@
+- name: Debug
+  hosts: localhost
+  become: yes
+  vars:
+   course: "DevOps"
+   trainer: "sivakumar"
+   duration: "120hr"
+  tasks:
+  - name: debug task
+    vars:
+     course: "DevOps Adv course"
+     trainer: "sivakumar brother"
+     duration: "1hr"
+    ansible.builtin.debug:
+      msg: "Hello World, checking variables course is {{course}}, trainer is {{trainer}} and duration {{duration}}"
