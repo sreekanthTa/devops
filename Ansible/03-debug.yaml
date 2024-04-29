@@ -1,5 +1,5 @@
 - name: Debug
-  hosts: web
+  hosts: localhost
   become: yes
   tasks:
   - name: debug task
