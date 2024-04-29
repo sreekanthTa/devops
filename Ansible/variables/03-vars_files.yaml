@@ -1,0 +1,9 @@
+- name: Variable Files
+  hosts: localhost
+  become:  yes
+  vars_file:
+   - 03-vars_file.yaml
+  tasks:
+  - name: Check variable files
+    ansible.builtin.debug:
+      msg: "Hello checking var files course is {{course}}, trainer is {{trainer}}, type {{advance}}"
