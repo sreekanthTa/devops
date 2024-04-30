@@ -4,4 +4,4 @@
    course: FirstAnsible
   tasks:
   - ansible.builtin.debug:
-      msg: "Checking default course is {{undefinedCourse || default('DefaultAnsibleCourse')}}"
+      msg: "Checking default course is {{undefinedCourse | default('DefaultAnsibleCourse')}}"
