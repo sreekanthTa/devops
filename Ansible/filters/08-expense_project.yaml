@@ -1,0 +1,47 @@
+- name: install db
+  hosts: db
+  vars:
+    login_host: db.daws78s.online
+  vars_promp:
+  - name: PASSWORD
+    prompt: Enter db password
+    private: no
+  tasks:
+    - name: install db
+      ansible.builtin.dnf:
+       name: mysql-server
+       state: latest
+    
+    - name: start service
+      ansible.builtin.service:
+       name: mysqld
+       state: started
+       enabled: yes
+
+             
+    - name: install python depenendencies
+      ansible.builtin.pip:
+        name:
+        - pyMySQL
+        - cryptography
+        executable: pip3.9
+    
+    - name: check db connection
+      community.mysql.mysql_info:
+       login_user: root
+       login_password: ExpenseApp@1
+       login_host: {{login_host}}
+       filter: version
+       ignore_errors: yes
+       register: mysql_connection_output
+    
+    - name: print output
+      ansible.builtin.debug:
+       msg: "{{mysql_connection_output}}"
+
+       
+    - name: setup root password
+      ansible.builtin.command: mysql_secure_installation --set-root-pass {{PASSWORD}}
+      when: mysql_connection_output.failed is true
+
+      
