@@ -1,7 +1,7 @@
 - name: install db
   hosts: db
   vars:
-    login_host: db.daws78s.online
+    login_host: 172.31.23.165
   vars_prompt:
   - name: PASSWORD
     prompt: Enter db password
