@@ -1,5 +1,6 @@
 - name: install db
   hosts: db
+  become: yes
   vars:
     login_host: 172.31.23.165
   vars_prompt:
