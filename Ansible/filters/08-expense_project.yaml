@@ -2,7 +2,7 @@
   hosts: db
   vars:
     login_host: db.daws78s.online
-  vars_promp:
+  vars_prompt:
   - name: PASSWORD
     prompt: Enter db password
     private: no
