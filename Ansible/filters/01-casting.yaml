@@ -6,5 +6,5 @@
     private: no
   tasks:
   - name: check num is greater than 0
-    ansible.bultin.debug:
+    ansible.builtin.debug:
      msg: "Num is {{num}} < 10"
