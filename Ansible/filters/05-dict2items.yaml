@@ -1,0 +1,15 @@
+- name: Dictionary to Items 
+  hosts: localhost
+  vars:
+   my_dict:
+    Course: Ansible
+    Duration: 120hr
+    Trainer: SivaKumar
+  tasks:
+  - name: before converting
+    ansible.builtin.debug:
+      msg: "Before converting values are {{my_dict}}"
+
+  - name: after converting
+    ansible.builtin.debug:
+      msg: "After converting values are {{my_dict|dict2items}}"

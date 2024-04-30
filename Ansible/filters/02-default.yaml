@@ -1,0 +1,7 @@
+- name: check default
+  hosts: localhost
+  vars:
+   course: FirstAnsible
+  tasks:
+  - ansible.builtin.debug:
+      msg: "Checking default course is {{undefinedCourse || default('DefaultAnsibleCourse')}}"

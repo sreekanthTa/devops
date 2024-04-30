@@ -1,0 +1,11 @@
+- name: checking loops
+  hosts: localhost
+  tasks:
+    - name: loop over a list
+      ansible.builtin.debug:
+       msg:"Hello {{item}}"
+  loop:
+  - one
+  - two
+  - three
+  

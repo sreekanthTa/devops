@@ -1,0 +1,13 @@
+- name:  items 2 dictio
+  hosts: localhost
+  vars:
+    my_list:
+    - {'key':'Course', 'duration':'120hr'}
+  tasks:
+  - name: before converting
+    ansible.builtin.debug:
+      msg: "Before converting values are {{my_list}}"
+
+  - name: after converting
+    ansible.builtin.debug:
+      msg: "After converting values are {{my_list|items2dict}}"

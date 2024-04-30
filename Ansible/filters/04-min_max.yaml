@@ -1,0 +1,8 @@
+- name: check min and max
+  hosts: localhost
+  vars: 
+   numbers: [1,5,22,89,75,10,5,89]
+  tasks:
+  - name: check min and max values
+    ansible.builtin.debug:
+      msg:  "checking values are as min {{numbers|min}} and max{{numbers|max}}"
