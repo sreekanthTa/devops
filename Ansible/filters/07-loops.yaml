@@ -4,8 +4,8 @@
     - name: loop over a list
       ansible.builtin.debug:
        msg:"Hello {{item}}"
-  loop:
-  - one
-  - two
-  - three
+      loop:
+      - one
+      - two
+      - three
   
