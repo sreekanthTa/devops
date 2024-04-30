@@ -10,4 +10,4 @@
 
   - name: after converting
     ansible.builtin.debug:
-      msg: "After converting values are {{my_list|items2dict}}"
+      msg: "After converting values are {{my_list | items2dict}}"
