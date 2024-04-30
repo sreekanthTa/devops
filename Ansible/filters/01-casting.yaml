@@ -1,0 +1,10 @@
+- name: string to number
+  host: localhost
+  vars_prompt:
+  - name: num
+    prompt: Please enter numberr
+    private: no
+  tasks:
+  - name: check num is greater than 0
+    ansbile.bultin.debug:
+     msg: "Num is {{num}} < 10"

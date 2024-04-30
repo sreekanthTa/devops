@@ -1,6 +1,8 @@
 - name: Debug
   hosts: localhost
   become: yes
+  vars:
+   course
   tasks:
   - name: debug task
     ansible.builtin.debug:
