@@ -1,0 +1,80 @@
+- name: configure backend
+  hosts: backend
+  become: yes
+  vars:
+   login_host: 172.31.31.35
+   login_password: ExpenseApp@1
+  tasks:
+  - name: disable default nodejs
+    ansible.builtin.command: "dfn module disable nodejs"
+    #  name: nodejs
+    #  state: absent
+
+  - name: enable nodejs 20 version
+    ansible.builtin.command: "dnf module enable nodejs:20 -y"
+    #  name: nodejs20
+    #  state: present
+    
+  - name: install nodejs
+    ansible.builtin.dnf:
+     name:nodejs
+     state:{{item}}
+    loop:
+    - mysql
+    - nodejs
+
+  - name: create folder
+    ansible.builtin.file:
+      path: /app
+      state: directory
+
+  - name: create user
+    ansible.builtin.user:
+     name: expense
+
+  - name: download zip
+    ansible.builtin.get_url:
+     url:
+     dest: /tmp/backend.zip
+  
+  - name: unzip or unar
+    ansible.builtin.unarchive:
+     src: /tmp/backend.zip
+     dest: /app
+  
+  - name: install node modules
+    ansible.builtin.command: npm install
+    args:
+      chdir:/app
+
+  - name: start service
+    ansible.builtin.copy:
+     src: backend.service
+     dest: /etc/systemd/system/backend.service
+
+
+  - name: import data into mysql
+    community.mysql.mysql_db:
+     login_user: root
+     login_password: "{{login_password}}"
+     login_host: "{{login_host}}"
+     target: /tmp/schema/backend.sql
+     state: import
+     name: all
+
+  - name: daemon reload
+    ansible.builtin.systemd:
+       daemon-reload: true
+
+  - name: start service
+    ansible.builtin.service:
+     name: backend
+     state: started
+     enabled: yes
+  
+
+
+     
+
+    
+     
