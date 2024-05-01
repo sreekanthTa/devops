@@ -52,7 +52,7 @@
     ansible.builtin.copy:
      src: backend.service
      dest: /etc/systemd/system/backend.service
-     
+
   - name: install python mysql dependencies
     ansible.builtin.pip: 
       name:
@@ -66,7 +66,7 @@
      login_user: root
      login_password: "{{login_password}}"
      login_host: "{{login_host}}"
-     target: /tmp/schema/backend.sql
+     target: /ap/schema/backend.sql
      state: import
      name: all
 
