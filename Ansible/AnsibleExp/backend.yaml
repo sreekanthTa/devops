@@ -45,7 +45,7 @@
   - name: install node modules
     ansible.builtin.command: "npm install"
     args:
-      chdir:/app
+      chdir: /app
 
   - name: start service
     ansible.builtin.copy:
