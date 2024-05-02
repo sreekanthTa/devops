@@ -55,6 +55,14 @@
       - cryptography
       executable: pip3.9
     
+  - name: import data inot mysql
+    community.mysql.mysql_db:
+     login_user: root
+     login_password: "{{login_password}}"
+     login_host: "{{login_host}}"
+     target: /app/schema/backend.sql
+     state: import
+     name: all
 
   - name: reload daemon
     ansible.builtin.systemd_service:
