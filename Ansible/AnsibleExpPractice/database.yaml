@@ -18,6 +18,14 @@
      state: started
      enabled: yes
 
+   - name: install dependencies for service to 
+     ansible.builtin.pip:
+      name: 
+       - PyMySQL
+       - cryptography
+      executable: pip3.9
+    
+
   - name: check db password
     community.mysql.mysql_info:
      host: root

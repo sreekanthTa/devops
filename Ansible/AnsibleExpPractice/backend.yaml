@@ -45,6 +45,14 @@
      src: /backend.service
      dest: /etc/systemd/system/backend.service
 
+  - name: install dependencies for service to 
+    ansible.builtin.pip:
+    name: 
+    - PyMySQL
+    - cryptography
+    executable: pip3.9
+    
+
   - name: reload daemon
     ansible.builtin.systemd_service:
      daemon-reload: true
