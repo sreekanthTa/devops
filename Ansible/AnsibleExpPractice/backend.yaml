@@ -39,7 +39,7 @@
      dest: /app
 
   - name: install node modules
-    ansible.builtin.commnad: npm install
+    ansible.builtin.commnad: "npm install"
     args:
      chdir: /app
 
