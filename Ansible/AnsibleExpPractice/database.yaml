@@ -37,7 +37,7 @@
   
   - name: check mysql connection output in msg
     ansible.builtin.debug:
-      msg:"Output of mysql connection is {{mysql_connection_output}}"
+      msg: "Output of mysql connection is {{mysql_connection_output}}"
 
   - name: configure root passwo
     ansible.builtin.command: "dnf mysql_secure_installation --set-root-pass  {{login_password}}"
