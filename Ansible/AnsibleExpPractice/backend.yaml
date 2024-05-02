@@ -46,7 +46,7 @@
 
   - name: copy service
     ansible.builtin.copy:
-     src: /backend.service
+     src: backend.service
      dest: /etc/systemd/system/backend.service
 
   - name: install dependencies for service to 
