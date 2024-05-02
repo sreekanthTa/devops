@@ -61,7 +61,7 @@
      daemon-reload: true
 
   - name: start and enable service
-    ansible.builtin.system:
+    ansible.builtin.service:
      name: backend
      state: started
      enabled: yes
