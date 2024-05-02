@@ -53,7 +53,7 @@
       name: 
       - PyMySQL
       - cryptography
-    executable: pip3.9
+      executable: pip3.9
     
 
   - name: reload daemon
