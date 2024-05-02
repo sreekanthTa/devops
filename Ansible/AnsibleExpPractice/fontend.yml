@@ -33,7 +33,7 @@
   - name: unizp backend code
     ansible.builtin.unarchive:
      src: /tmp/frontend.zip
-     dest: /usr/share/nginx
+     dest: /usr/share/nginx/html
 
   - name: copy conif
     ansible.builtin.copy:
