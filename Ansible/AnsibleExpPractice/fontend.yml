@@ -1,10 +1,9 @@
 - name: configure frontend
   hosts: frontend
-  vars:
-
+  become: yes
   tasks:
   - name: install ngin
-    ansible.builtin.command: dnf install nginx
+    ansible.builtin.command: "dnf install nginx -y"
 
   - name: start ane enable
     ansible.builtin.service:
