@@ -1,6 +1,9 @@
 - name: configure backne
-  hosts: 172.31.30.0
+  hosts: backend
   become: yes
+  vars:
+   login_host: 172.31.31.35
+   login_password: ExpenseApp@1
   tasks:
   - name: disable default nodejs
     ansible.builtin.command: dnf module disable nodejs -y
