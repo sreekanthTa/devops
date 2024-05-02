@@ -28,6 +28,8 @@
     ansible.builtin.get_url:
      url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
      dest: /tmp/frontend.zip
+     remote_src: yes
+
 
   - name: unizp backend code
     ansible.builtin.unarchive:
@@ -39,9 +41,7 @@
      src: expense.conf
      dest: /etc/nginx/default.d/expense.conf
 
-  - name
-
-
+  
   
   - name:  restart ngin
     ansible.builtin.system:
