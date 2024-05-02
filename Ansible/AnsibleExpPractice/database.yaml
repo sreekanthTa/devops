@@ -10,7 +10,7 @@
     
   tasks:
   - name: Install Mysql Server
-    ansible.builtin.command: dnf install mysql-server
+    ansible.builtin.command: dnf install mysql-server -y
 
   - name: Start server
     ansible.builtin.service:
