@@ -28,9 +28,10 @@
 
   - name: check db password
     community.mysql.mysql_info:
-     host: root
-     password: "{{login_password}}"
-     host: "{{login_host}}"
+     login_user: root
+     login_password: "{{login_password}}"
+     login_host: "{{login_host}}"
+     filter: version
     ignore_errors: yes
     register: mysql_connection_output
   
