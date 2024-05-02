@@ -1,0 +1,37 @@
+- name: Configure Database
+  hosts: db
+  become: yes
+  vars:
+   login_host: 172.31.23.168
+  vars_prompt:
+  - name: login_password
+    prompt: Enter Login Password
+    private: no
+    
+  tasks:
+  - name: Install Mysql Server
+    ansible.builtin.dnf: dnf install mysql-server
+
+  - name: Start server
+    ansible.builtin.dbf:
+     name: start
+     state: started
+     enabled: yes
+
+  - name: check db password
+    community.mysql.mysql_info:
+     host: root
+     password: "{{login_password}}"
+     host: "{{login_host}}"
+    ignore_errors: yes
+    register: mysql_connection_output
+  
+  - name: check mysql connection output in msg
+    ansible.builtin.debug:
+      msg:"Output of mysql connection is {{mysql_connection_output}}"
+
+  - name: configure root passwo
+    ansible.builtin.debug: dnf mysql_secure_installation --set-root-pass -pExpenseApp@1
+    when: mysql_connection_ouput.failed is true
+
+  

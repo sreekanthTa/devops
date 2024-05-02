@@ -1,0 +1,11 @@
+[Unit]
+Description=Backend Service
+
+[Service]
+user=expense
+Environment=DB_HOST=172.31.23.168
+ExecStart=/bin/bash /app/index.js
+SyslogIdentifier=Backend
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,57 @@
+- name: configure backne
+  hosts: 172.31.30.0
+  become: yes
+  tasks:
+  - name: disable default nodejs
+    ansible.builtin.command: dnf module disable nodejs -y
+
+  - name: enable nodejs20
+    ansible.builtin.command: dnf module enable nodejs:20 -y
+
+  - name: install nodejs
+    ansible.builtin.dnf:
+     name: {{item}}
+     state: installed
+    loop:
+    - mysql
+    - nodejs
+
+  - name: create directory
+    ansible.builtin.file:
+     path: /app
+     state: directory
+    
+  - name: creaet user
+    ansible.builtin.user:
+     name: expense
+
+  - name: download backend code
+    ansible.builtin.get_url:
+     url:  https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+     dest: /tmp/backend.zip
+
+  - name: unizp backend code
+    ansible.builtin.unarchive:
+     src: /tmp/backend.zip
+     dest: /app
+
+  - name: install node modules
+    ansible.builtin.commnad: npm install
+    args:
+     chdir: /app
+
+  - name: copy service
+    ansible.builtin.copy:
+     src: /backend.service
+     dest: /etc/systemd/system/backend.service
+
+  - name: reload daemon
+    ansible.builtin.systemd_service:
+     daemon-reload: true
+
+  - name: start and enable service
+    ansible.builtin.system:
+     name: backend
+     state: started
+     enabled: yes
+  
