@@ -18,9 +18,9 @@
      state: started
      enabled: yes
 
-   - name: install dependencies for service to 
-     ansible.builtin.pip:
-      name: 
+  - name: install dependencies for service to 
+    ansible.builtin.pip:
+     name: 
        - PyMySQL
        - cryptography
       executable: pip3.9
