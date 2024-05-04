@@ -1,8 +1,8 @@
 - name: Configure Database
-  hosts: 35.175.182.255
+  hosts: 172.31.16.30
   become: yes
   vars:
-   login_host: 35.175.182.255
+   login_host: 3.89.255.27
   vars_prompt:
   - name: login_password
     prompt: Enter Login Password
