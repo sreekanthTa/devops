@@ -5,12 +5,7 @@
   - name: install ngin
     ansible.builtin.command: "dnf install nginx -y"
 
-  - name: Stop nginx service if running
-    ansible.builtin.service:
-      name: nginx
-      state: absent
-    ignore_errors: yes
-
+ 
   - name: delete default code
     ansible.builtin.file:
      path: /usr/share/nginx/html
