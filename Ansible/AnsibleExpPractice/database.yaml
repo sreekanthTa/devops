@@ -24,6 +24,9 @@
      - cryptography
      executable: pip3.9.18
     
+  - name: Display installed packages
+    ansible.builtin.debug:
+     var: installed_packages
 
   - name: check db password
     community.mysql.mysql_info:
