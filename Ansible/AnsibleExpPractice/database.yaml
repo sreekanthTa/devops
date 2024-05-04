@@ -20,16 +20,16 @@
   - name: install dependencies for service to 
     ansible.builtin.pip:
      name: 
-       - PyMySQL
-       - cryptography
+     - PyMySQL
+     - cryptography
      executable: pip3.9
     
 
   - name: check db password
     community.mysql.mysql_info:
      login_user: root
-     login_password: "{{ login_password }}"
-     login_host: "{{ login_host }}"
+     login_password: "{{login_password}}"
+     login_host: "{{login_host}}"
      filter: version
     ignore_errors: yes
     register: mysql_connection_output
