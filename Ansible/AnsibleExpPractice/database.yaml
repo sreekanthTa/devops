@@ -4,11 +4,7 @@
   vars:
    login_host: 3.87.152.180
    login_password: ExpenseApp@1
-  # vars_prompt:
-  # - name: login_password
-  #   prompt: Enter Login Password
-  #   private: no
-    
+
   tasks:
   - name: Install Mysql Server
     ansible.builtin.dnf:
