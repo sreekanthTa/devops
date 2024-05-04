@@ -22,7 +22,7 @@
      name: 
      - PyMySQL
      - cryptography
-     executable: pip3.9.18
+     executable: pip3.9
     
   - name: Display installed packages
     ansible.builtin.debug:
