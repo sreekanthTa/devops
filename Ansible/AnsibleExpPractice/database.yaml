@@ -2,7 +2,7 @@
   hosts: db
   become: yes
   vars:
-   login_host: 172.31.27.105
+   login_host: 3.87.152.180
    login_password: ExpenseApp@1
   # vars_prompt:
   # - name: login_password
