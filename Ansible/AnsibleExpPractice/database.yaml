@@ -1,5 +1,5 @@
 - name: Configure Database
-  hosts: 172.31.16.30
+  hosts: 3.89.255.27
   become: yes
   vars:
    login_host: 3.89.255.27
