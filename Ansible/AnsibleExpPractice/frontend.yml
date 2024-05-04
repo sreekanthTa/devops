@@ -5,11 +5,6 @@
   - name: install ngin
     ansible.builtin.command: "dnf install nginx -y"
 
-  - name: start ane enable
-    ansible.builtin.service:
-      name: nginx
-      state: started
-      enabled: yes
 
 
   - name: delete default code
@@ -22,6 +17,13 @@
     ansible.builtin.file:
      path: /usr/share/nginx/html
      state: directory
+
+  - name: start ane enable
+    ansible.builtin.service:
+      name: nginx
+      state: started
+      enabled: yes
+
     
 
   - name: download backend code
