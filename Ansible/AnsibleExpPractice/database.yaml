@@ -3,10 +3,11 @@
   become: yes
   vars:
    login_host: 172.31.27.105
-  vars_prompt:
-  - name: login_password
-    prompt: Enter Login Password
-    private: no
+   login_password: ExpenseApp@1
+  # vars_prompt:
+  # - name: login_password
+  #   prompt: Enter Login Password
+  #   private: no
     
   tasks:
   - name: Install Mysql Server
