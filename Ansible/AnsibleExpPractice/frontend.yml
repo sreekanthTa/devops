@@ -8,7 +8,7 @@
   - name: Stop nginx service if running
     ansible.builtin.service:
       name: nginx
-      state: stopped
+      state: absent
     ignore_errors: yes
 
   - name: delete default code
