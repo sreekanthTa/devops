@@ -1,8 +1,7 @@
 - name: configure DB Server
   hosts: db
   become: yes
-  vars:
-   login_host: 172.31.31.35
+  vars:54.167.75.176172.31.31.35
   vars_prompt:
    - name: sql_root_password
      prompt: Enter root password
